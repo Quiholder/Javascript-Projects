@@ -12,7 +12,7 @@ function myFunction() {
 }
 function count_Function () {
   document.getElementById("Counting").innerHTML=Count();
-  function Plus_one() {Starting_poiny += 1;}
+  function Plus_one() {Starting_point += 1;}
   Plus_one();
   return Starting_point;
   }
