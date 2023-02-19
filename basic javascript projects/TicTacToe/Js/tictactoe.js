@@ -168,7 +168,7 @@ function clear() {
 //this line disallows clicking while the win sound is playing. 
 disableClick();
 //this line play the win sounds.
-audio('./media/girlScream.mp3');
+audio('./media/bravo.mp3');
 //this line calls our main animation loop.
 animateLineDrawing();
 //this line waits 1 second then, clears canvas, resets game, and allows clicking again.
