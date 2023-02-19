@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type = "text/css" href= "./CSS/css_1.css">
+    </head>
+<body>
+    <body>
+<!-- ADDING A FORM -->
+        <h3>Using CSS to style an HTML Form</h3>
+        
+        <div>
+          <form action="/action_page.php">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        
+            <label for="country">Country</label>
+            <select id="country" name="country">
+              <option value="australia">Australia</option>
+              <option value="canada">Canada</option>
+              <option value="usa">USA</option>
+            </select>
+          
+            <input type="submit" value="Submit">
+            <h2>JavaScript Validation</h2>
+<!-- form validation If a form field (fname) is empty, this function alerts a message, and returns false, to prevent the form from being submitted-->
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+  Name: <input type="text" name="fname">
+  <input type="submit" value="Submit">
+</form>
+
+          </form>
+        
+
+        </div>
+        
+        </body>
+        </html>
+        
+        
+        
+ <script src=""></script>
+ </body>
