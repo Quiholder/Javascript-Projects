@@ -96,7 +96,7 @@ function checkWinConditions() {
 //This function makes our body element temporarily unclickable.
 function disableClick() {
     body.style.pointerEvents='none'; 
-    //This makrs body clickable again after 1 second.
+    //This makes body clickable again after 1 second.
     setTimeout(function () { body.style.pointerEvents= 'auto'; }, 1000);
 }
 
