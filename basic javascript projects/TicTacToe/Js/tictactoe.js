@@ -57,28 +57,22 @@ function checkWinConditions() {
     else if(arrayIncludes('3X', '4X','5X')) {drawWinLine (50, 304, 558, 304) }
     else if(arrayIncludes ('6X', '7X', '8X')) {drawWinLine(50, 508, 558, 508) }
     else if (arrayIncludes ('0X','3X','6X')) {drawWinLine (100, 50, 100, 558) }
-    else if(arrayIncludes('1X', '4X', '7X')) {drawWinLine(304, 50, 304, 558) }
-
     
+    else if(arrayIncludes('1X', '4X', '7X')) {drawWinLine(304, 50, 304, 558) }
     else if(arrayIncludes('2X', '5X','8X')) {drawWinLine (508, 50, 508, 558) }
     else if(arrayIncludes ('6X', '4X', '2X')) {drawWinLine(100, 508, 510, 90) }
     else if (arrayIncludes ('0X','4X','8X')) {drawWinLine (100, 100, 520, 520) }
-    else if(arrayIncludes('0O', '10', '20')) {drawWinLine(50, 100, 558, 100) }
-
-    
+    else if(arrayIncludes('0O', '1O', '2O')) {drawWinLine(50, 100, 558, 100) }
     else if(arrayIncludes('3O', '4O','5O')) {drawWinLine (50, 304, 558, 304) }
     else if(arrayIncludes ('6O', '7O', '8O')) {drawWinLine(50, 508, 558, 508) }
     else if (arrayIncludes ('0O','3O','6O')) {drawWinLine (100, 50, 100, 558) }
     else if(arrayIncludes('1O', '4O', '7O')) {drawWinLine(304, 50, 304, 558) }
-
-    
-
     else if(arrayIncludes ('2O', '5O', '8O')) {drawWinLine(508, 50, 508, 558) }
     else if (arrayIncludes ('6O','4O','2O')) {drawWinLine (100, 508, 510, 90) }
-    else if(arrayIncludes('0O', '4O', '80')) {drawWinLine(100, 100, 520, 520) }
+    else if(arrayIncludes('0O', '4O', '8O')) {drawWinLine(100, 100, 520, 520) }
     else if(selectedSquares.length>=9) {
         //This function plays the tie game sound.
-        audio('.media/tie.mp3');
+        audio('./media/girlScream.mp3');
         //This function sets a .3 second timer before the resetGame is called.
         setTimeout(function() { resetGame();}, 500);
     }
@@ -133,7 +127,7 @@ function animateLineDrawing() {
     const animationLoop=requestAnimationFrame(animateLineDrawing);
     //This method clears content from the last loop iteration.
     c.clearRect(0,0,608,608);
-    //thid method starts a new path.
+    //this method starts a new path.
     c.beginPath();
     //This method moves us to a starting point in our line.
     c.moveTo(x1,y1);
@@ -146,14 +140,19 @@ function animateLineDrawing() {
     //this method draws everything we laid out above.
     c.stroke();
     //this condition checks if we've reached the endpoints. 
-    if (x1<= x2 && y1<=y2) {
-        //this condition adds 10 to the previous end x endpoint.
+    if(x1<=x2 && y1<=y2) {
+        //this conidtion adds 10 to the previous end x endpoints. 
+        if(x<x2) {x+=10;}
+        //this conidtion adds 10 to the  previous end y endpoints. 
+        if(y<y2) {y+=10;}
+        if(x>=x2 && y>=y2) {cancelAnimationFrame(animationLoop);}
+    }
+    //this condition is similar to the one above. 
+    //this is neccessary for the 6, 4, 2 win condition.
+    if (x1<= x2 && y1>=y2) {
         if(x< x2) {x +=10;}
-        //this condition adds 10 to the previous end y endpoint. 
-        if(y<y2) {y+=10; }
-        //this condition is similar to the one above.
-        //this is necessary for the 6, 4, 2 win conditions. 
-        if(x>=x2 && y>=y2) {cancelAnimationFrame (animationLoop); }
+        if(y>y2) {y-=10;}
+        if(x>=x2 && y<=y2) {cancelAnimationFrame (animationLoop); }
     }
 }        
 //This function clears our canvas after our win line is drawn.
