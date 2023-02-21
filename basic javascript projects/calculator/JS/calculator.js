@@ -30,7 +30,7 @@ function Input_Decimal(dot) {
     //this ensures that accidental clicking of the decimal point doesn't
     //cause bugs in the operation.
     if (Calculator.Wait_Second_Operand===true) return;
-    if (Calculator.Display_Value.includes(dot)) {
+    if (!Calculator.Display_Value.includes(dot)) {
         //we are saying that if the Display_Value does not contain a decimal point
         //we want to add a decimla point.
         Calculator.Display_Value += dot;
@@ -56,7 +56,7 @@ function Handle_Operator(Next_Operator) {
         //if operator exists, property lookup is performed for the operator 
         //in the Perform_Calculation object and the function that matches the 
         //operator is executed. 
-        let result=Perform_Calculation[operator] (Value_of_Input);
+        let result=Perform_Calculation[operator] (Value_Now, Value_of_Input);
         //here we add a fixed amount of numbers after the decimal. 
         result=Number(result).toFixed (9);
         //this will remove any trailing 0's
