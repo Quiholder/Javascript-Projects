@@ -168,7 +168,7 @@ function clear() {
 //this line disallows clicking while the win sound is playing. 
 disableClick();
 //this line play the win sounds.
-audio('./media/bravo.mp3');
+audio('./media/medieval.mp3');
 //this line calls our main animation loop.
 animateLineDrawing();
 //this line waits 1 second then, clears canvas, resets game, and allows clicking again.
@@ -177,12 +177,14 @@ setTimeout(function () { clear(); resetGame();},1000);
 //this function resets the game in the event of a tie or a win.
 function resetGame() {
     //this for loop iterates through each HTML square element. 
-    for (let i=0; i < 9;i++) {
+    for (let i = 0; i < 9; i++) {
         //this variable gets the HTML element i. 
         let square=document.getElementById(String(i));
         //this removes our elements backgroundImage. 
         square.style.backgroundImage='';
     }
+    //this resets our array so it is empty and we can start over. 
+    selectedSquares=[];
 }
 
 
