@@ -18,6 +18,11 @@
     height:200px;
     float:left;
 }
+.center {
+    width:200px;
+    height:200px;
+    float:left;
+}
 .right {
     width:200px;
     height:200px;
@@ -38,4 +43,19 @@
     margin:10px 0px 0px 100px;
     width:100px;
     height:40px;
+}
+body {
+    background-color: coral;
+}
+h1 {
+    font-family:cursive;
+    color:white;
+}
+h3 { 
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+}
+div {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(90, 2, 20);
 }
